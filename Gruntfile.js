@@ -82,8 +82,8 @@ module.exports = function(grunt) {
       },
       test: {
         files: {
-          ['http://admin:pass@localhost:4984/medic-test']: 'build/ddocs/medic.json',
-          ['http://admin:pass@localhost:4984/medic-test-logs']: 'build/ddocs/medic/_attachments/ddocs/logs.json',
+          ['http://admin:password@localhost:4984/medic-test']: 'build/ddocs/medic.json',
+          ['http://admin:password@localhost:4984/medic-test-logs']: 'build/ddocs/medic/_attachments/ddocs/logs.json',
         },
       },
       testing: {
@@ -356,7 +356,7 @@ module.exports = function(grunt) {
       },
       'setup-test-database': {
         cmd: [
-          `docker run -d -p 4984:5984 -p 4986:5986 -e COUCHDB_PASSWORD=pass -e COUCHDB_USER=admin --rm --name e2e-couchdb --mount type=tmpfs,destination=/opt/couchdb/data medicmobile/cht-couchdb:clustered-test4`,
+          `docker run -d -p 4984:5984 -p 4986:5986 -e COUCHDB_PASSWORD=password -e COUCHDB_USER=admin --rm --name e2e-couchdb --mount type=tmpfs,destination=/opt/couchdb/data medicmobile/cht-couchdb:clustered-test4`,
           'sh tests/scripts/wait_for_response_code.sh 4984 401 couch',
         ].join('&& ')
       },
