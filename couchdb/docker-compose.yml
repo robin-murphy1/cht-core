@@ -14,9 +14,9 @@ services:
     - "COUCHDB_USER=${COUCHDB_USER:-admin}"
     - "COUCHDB_PASSWORD=${COUCHDB_PASSWORD:-pass}"
     - "COUCHDB_SECRET=${COUCHDB_SECRET:-pass}"
-    - "COUCHDB_UUID=${COUCHDB_UUID}"
+    - "COUCHDB_UUID=${COUCHDB_UUID:-5c265815-b9e3-47f1-ba8d-c1d50495eeb2}"
     - "SVC_NAME=${SVC1_NAME:-couchdb.1}"
-    - "CLUSTER_PEER_IPS=couchdb.2,couchdb.3"
+#    - "CLUSTER_PEER_IPS=couchdb.2,couchdb.3"
     - "COUCHDB_LOG_LEVEL=${COUCHDB_LOG_LEVEL:-error}"
     logging:
       driver: "local"
