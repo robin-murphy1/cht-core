@@ -25,6 +25,7 @@ const getCouchConfig = () => {
     throw 'Required environment variable COUCH_URL is undefined. (eg. http://your:pass@localhost:5984/medic)';
   }
   const parsedUrl = new URL(COUCH_URL);
+  console.log('URL ::' + parsedUrl)
   if (!parsedUrl.username || !parsedUrl.password) {
     throw 'COUCH_URL must contain admin authentication information';
   }
