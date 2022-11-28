@@ -3,6 +3,10 @@ version: '3.9'
 services:
   couchdb.1:
     image: public.ecr.aws/s5s3h4s7/cht-couchdb:4.0.0-alpha
+    ports:
+      - 5984:5984
+      - 4369:4369
+      - 9100:9100
     volumes:
     - ${DB1_DATA:-./srv1}:/opt/couchdb/data
     - cht-credentials:/opt/couchdb/etc/local.d/
