@@ -11,7 +11,7 @@ services:
     - ${DB1_DATA:-./srv1}:/opt/couchdb/data
     - cht-credentials:/opt/couchdb/etc/local.d/
     environment:
-    - "COUCHDB_USER=${COUCHDB_USER:--admin}"
+    - "COUCHDB_USER=${COUCHDB_USER:-admin}"
     - "COUCHDB_PASSWORD=${COUCHDB_PASSWORD:-pass}"
     - "COUCHDB_SECRET=${COUCHDB_SECRET:-pass}"
     - "COUCHDB_UUID=${COUCHDB_UUID}"
