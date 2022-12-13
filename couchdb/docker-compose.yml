@@ -27,6 +27,20 @@ services:
     networks:
       cht-net:
 
+  haproxy:
+    image: medicmobile/cht-haproxy:${CHT_CORE_RELEASE:-archv3-042822-v256}
+    hostname: haproxy
+    environment:
+    - "HAPROXY_IP=${HAPROXY_IP:-haproxy}"
+    - "COUCHDB_USER=${COUCHDB_USER:-admin}"
+    - "COUCHDB_PASSWORD=${COUCHDB_PASSWORD}"
+    - "COUCHDB1_SERVER=${COUCHDB1_SERVER:-couchdb.1}"
+    - "HAPROXY_PORT=${HAPROXY_PORT:-5984}"
+    networks:
+      cht-net:
+    ports:
+    - ${HAPROXY_PORT:-5984}:${HAPROXY_PORT:-5984}
+
 #  couchdb.2:
 #    image: public.ecr.aws/s5s3h4s7/cht-couchdb:4.0.0-alpha
 #    volumes:
