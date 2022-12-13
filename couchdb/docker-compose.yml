@@ -9,7 +9,6 @@ services:
       - 9100:9100
     volumes:
     - ${DB1_DATA:-./srv1}:/opt/couchdb/data
-#    - cht-credentials:/opt/couchdb/etc/local.d/
     environment:
     - "COUCHDB_USER=${COUCHDB_USER:-admin}"
     - "COUCHDB_PASSWORD=${COUCHDB_PASSWORD:-password}"
@@ -83,8 +82,8 @@ services:
 #    networks:
 #      cht-net:
 
-volumes:
-  cht-credentials:
+#volumes:
+#  cht-credentials:
 
 networks:
   cht-net:
