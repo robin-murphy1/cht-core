@@ -33,7 +33,7 @@ services:
     environment:
     - "HAPROXY_IP=${HAPROXY_IP:-haproxy}"
     - "COUCHDB_USER=${COUCHDB_USER:-admin}"
-    - "COUCHDB_PASSWORD=${COUCHDB_PASSWORD:password}"
+    - "COUCHDB_PASSWORD=${COUCHDB_PASSWORD:-password}"
     - "COUCHDB1_SERVER=${COUCHDB1_SERVER:-couchdb.1}"
     - "HAPROXY_PORT=${HAPROXY_PORT:-5984}"
     networks:
