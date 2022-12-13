@@ -9,7 +9,7 @@ services:
       - 9100:9100
     volumes:
     - ${DB1_DATA:-./srv1}:/opt/couchdb/data
-    - cht-credentials:/opt/couchdb/etc/local.d/
+#    - cht-credentials:/opt/couchdb/etc/local.d/
     environment:
     - "COUCHDB_USER=${COUCHDB_USER:-admin}"
     - "COUCHDB_PASSWORD=${COUCHDB_PASSWORD:-password}"
@@ -17,7 +17,7 @@ services:
     - "COUCHDB_UUID=${COUCHDB_UUID:-5c265815-b9e3-47f1-ba8d-c1d50495eeb2}"
     - "SVC_NAME=${SVC1_NAME:-couchdb.1}"
 #    - "CLUSTER_PEER_IPS=couchdb.2,couchdb.3"
-    - "COUCHDB_LOG_LEVEL=${COUCHDB_LOG_LEVEL:-info}"
+    - "COUCHDB_LOG_LEVEL=${COUCHDB_LOG_LEVEL:-debug}"
     logging:
       driver: "local"
       options:
