@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   couchdb.1:
-    image: public.ecr.aws/s5s3h4s7/cht-couchdb:4.0.0-alpha
+    image: public.ecr.aws/medic/cht-couchdb:4.0.0-7872-more-options-menu
     ports:
       - 5984:5984
       - 4369:4369
