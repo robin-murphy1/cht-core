@@ -28,7 +28,7 @@ services:
       cht-net:
 
   haproxy:
-    image: medicmobile/cht-haproxy
+    image: medicmobile/cht-haproxy:3.15.0-archv3-e2e-upgrade-forinstall
     hostname: haproxy
     environment:
     - "HAPROXY_IP=${HAPROXY_IP:-haproxy}"
