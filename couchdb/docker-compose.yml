@@ -39,7 +39,7 @@ services:
     networks:
       cht-net:
     ports:
-    - ${HAPROXY_PORT:-5984}:${HAPROXY_PORT:-5985}
+    - ${HAPROXY_PORT:-5985}:${HAPROXY_PORT:-5985}
 
 #  couchdb.2:
 #    image: public.ecr.aws/s5s3h4s7/cht-couchdb:4.0.0-alpha
