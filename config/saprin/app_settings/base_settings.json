@@ -1,0 +1,256 @@
+{
+  "setup_complete": true,
+  "locales": [
+    {
+      "code": "en",
+      "name": "English"
+    }
+  ],
+  "locale": "en",
+  "locale_outgoing": "en",
+  "date_format": "YYYY-MM-DD",
+  "reported_date_format": "YYYY-MM-DD HH:mm:ss",
+  "forms_only_mode": false,
+  "default_responses": {
+    "start_date": ""
+  },
+  "district_admins_access_unallocated_messages": false,
+  "public_access": false,
+  "default_country_code": 1,
+  "gateway_number": "+13125551212",
+  "schedule_morning_hours": 0,
+  "schedule_morning_minutes": 0,
+  "schedule_evening_hours": 23,
+  "schedule_evening_minutes": 0,
+  "synthetic_date": "",
+  "contact_display_short": "clinic.name",
+  "roles": {
+    "chw_supervisor": {
+      "name": "usertype.chw-supervisor",
+      "offline": true
+    },
+    "chw": {
+      "name": "usertype.chw",
+      "offline": true
+    }
+  },
+  "permissions": {
+    "can_bulk_delete_reports": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_create_people": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_create_places": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_create_records": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_delete_contacts": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_delete_messages": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_delete_reports": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_edit": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_edit_profile": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_edit_verification": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_export_all": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_export_contacts": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_export_feedback": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_export_messages": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_update_places": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_update_reports": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_export_dhis": [
+      "chw_supervisor"
+    ],
+    "can_verify_reports": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_analytics": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_analytics_tab": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_call_action": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_contacts": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_contacts_tab": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_message_action": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_messages": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_messages_tab": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_reports": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_reports_tab": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_tasks": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_tasks_tab": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_view_unallocated_data_records": [
+      "chw_supervisor",
+      "chw"
+    ],
+    "can_aggregate_targets": [
+      "chw_supervisor"
+    ]
+  },
+  "place_hierarchy_types": [
+    "npo",
+    "sub_district",
+    "team_area",
+    "indawo",
+    "household"
+  ],
+  "contact_types": [
+    {
+      "id": "npo",
+      "name_key": "contact.type.npo",
+      "group_key": "contact.type.npo.plural",
+      "create_key": "contact.type.npo.new",
+      "edit_key": "contact.type.place.edit",
+      "icon": "wcg-npo",
+      "create_form": "form:contact:npo:create",
+      "edit_form": "form:contact:npo:edit"
+    },
+    {
+      "id": "sub_district",
+      "name_key": "contact.type.sub_district",
+      "group_key": "contact.type.sub_district.plural",
+      "create_key": "contact.type.sub_district.new",
+      "edit_key": "contact.type.place.edit",
+      "parents": [
+        "npo"
+      ],
+      "icon": "wcg-sub-district",
+      "create_form": "form:contact:sub_district:create",
+      "edit_form": "form:contact:sub_district:edit"
+    },
+    {
+      "id": "team_area",
+      "name_key": "contact.type.team_area",
+      "group_key": "contact.type.team_area.plural",
+      "create_key": "contact.type.team_area.new",
+      "edit_key": "contact.type.place.edit",
+      "parents": [
+        "sub_district"
+      ],
+      "icon": "wcg-team-area",
+      "create_form": "form:contact:team_area:create",
+      "edit_form": "form:contact:team_area:edit"
+    },
+    {
+      "id": "indawo",
+      "name_key": "contact.type.indawo",
+      "group_key": "contact.type.indawo.plural",
+      "create_key": "contact.type.indawo.new",
+      "edit_key": "contact.type.place.edit",
+      "parents": [
+        "team_area"
+      ],
+      "icon": "wcg-indawo",
+      "create_form": "form:contact:indawo:create",
+      "edit_form": "form:contact:indawo:edit"
+    },
+    {
+      "id": "household",
+      "name_key": "contact.type.household",
+      "group_key": "contact.type.household.plural",
+      "create_key": "contact.type.household.new",
+      "edit_key": "contact.type.place.edit",
+      "parents": [
+        "indawo"
+      ],
+      "icon": "wcg-household",
+      "create_form": "form:contact:household:create",
+      "edit_form": "form:contact:household:edit",
+      "count_visits": true
+    },
+    {
+      "id": "person",
+      "name_key": "contact.type.person",
+      "group_key": "contact.type.person.plural",
+      "create_key": "contact.type.person.new",
+      "edit_key": "contact.type.person.edit",
+      "primary_contact_key": "household.field.contact",
+      "parents": [
+        "team_area",
+        "indawo",
+        "household",
+        "npo",
+        "sub_district"
+      ],
+      "icon": "wcg-client",
+      "create_form": "form:contact:person:create",
+      "edit_form": "form:contact:person:edit",
+      "person": true
+    }
+  ]
+}
