@@ -1,0 +1,94 @@
+version: '3.9'
+
+services:
+  couchdb:
+    image: public.ecr.aws/medic/cht-couchdb:4.0.0-7872-more-options-menu
+    ports:
+    - 5984:5984
+    - 4369:4369
+    - 9100:9100
+    volumes:
+    - ${DB1_DATA:-./srv1}:/opt/couchdb/data
+    environment:
+    - "COUCHDB_USER=${COUCHDB_USER:-admin}"
+    - "COUCHDB_PASSWORD=${COUCHDB_PASSWORD:-password}"
+    - "COUCHDB_SECRET=${COUCHDB_SECRET:-password}"
+    - "COUCHDB_UUID=${COUCHDB_UUID:-5c265815-b9e3-47f1-ba8d-c1d50495eeb2}"
+    - "SVC_NAME=${SVC1_NAME:-couchdb.1}"
+    #    - "CLUSTER_PEER_IPS=couchdb.2,couchdb.3"
+    - "COUCHDB_LOG_LEVEL=${COUCHDB_LOG_LEVEL:-debug}"
+    logging:
+      driver: "local"
+      options:
+        max-size: "${LOG_MAX_SIZE:-50m}"
+        max-file: "${LOG_MAX_FILES:-20}"
+    restart: always
+    networks:
+      cht-net:
+
+  haproxy:
+    image: medicmobile/cht-haproxy:3.15.0-archv3-e2e-upgrade-forinstall
+    hostname: haproxy
+    environment:
+    - "HAPROXY_IP=${HAPROXY_IP:-haproxy}"
+    - "COUCHDB_USER=${COUCHDB_USER:-admin}"
+    - "COUCHDB_PASSWORD=${COUCHDB_PASSWORD:-password}"
+    - "COUCHDB1_SERVER=${COUCHDB1_SERVER:-couchdb.1}"
+    - "HAPROXY_PORT=${HAPROXY_PORT:-5984}"
+    depends_on:
+    - couchdb
+    networks:
+      cht-net:
+    ports:
+    - ${HAPROXY_PORT:-5985}:${HAPROXY_PORT:-5984}
+
+
+  cht-api:
+    image: robinmurphywcg/wcg-cht-api:latest
+    ports:
+    - 5988:5988
+    environment:
+    - "COUCHDB_PASSWORD=${COUCHDB_PASSWORD:-password}"
+    - "COUCHDB_USER=${COUCHDB_USER:-admin}"
+    - "COUCH_URL=http://admin:password@couchdb:5984/medic"
+    logging:
+      driver: "local"
+      options:
+        max-size: "${LOG_MAX_SIZE:-50m}"
+        max-file: "${LOG_MAX_FILES:-20}"
+    restart: always
+    networks:
+      cht-net:
+    depends_on:
+    - haproxy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://admin:password@couchdb:5984/medic"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  cht-sentinel:
+    image: robinmurphywcg/wcg-cht-sentinel:latest
+    environment:
+    - "COUCHDB_PASSWORD=${COUCHDB_PASSWORD:-password}"
+    - "COUCHDB_USER=${COUCHDB_USER:-admin}"
+    - "COUCH_URL=http://admin:password@couchdb:5984/medic"
+    logging:
+      driver: "local"
+      options:
+        max-size: "${LOG_MAX_SIZE:-50m}"
+        max-file: "${LOG_MAX_FILES:-20}"
+    restart: always
+    networks:
+      cht-net:
+    depends_on:
+    - cht-api
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://cht-api:5988"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+networks:
+  cht-net:
+    name: ${CHT_NETWORK:-cht-net}
