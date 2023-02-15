@@ -162,6 +162,33 @@
       "chw_supervisor"
     ]
   },
+  "registratioins": [
+    {
+      "form": "child_health_registration",
+      "events": [
+        {
+          "name": "on_create",
+          "trigger": "assign_schedule",
+          "params": "Child Health from App",
+          "bool_expr": "doc.fields.birth_date"
+        },
+        {
+          "name": "on_create",
+          "trigger": "clear_schedule",
+          "params": "Child Health, Child Health from App",
+          "bool_expr": ""
+        }
+      ],
+      "validations": {},
+      "messages": [
+        {
+          "translation_key": "messages.relay.chw_sms",
+          "event_type": "report_accepted",
+          "recipient": "chw_phone"
+        }
+      ]
+    }
+  ],
   "place_hierarchy_types": [
     "npo",
     "sub_district",

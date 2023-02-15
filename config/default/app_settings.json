@@ -80,8 +80,7 @@
     ],
     "can_bulk_delete_reports": [
       "program_officer",
-      "chw_supervisor",
-      "chw"
+      "chw_supervisor"
     ],
     "can_configure": [
       "program_officer",
@@ -285,14 +284,14 @@
   },
   "contact_types": [
     {
-      "id": "district_subdistrict",
-      "name_key": "contact.type.district_subdistrict",
-      "group_key": "contact.type.district_subdistrict.plural",
-      "create_key": "contact.type.district_subdistrict.new",
+      "id": "npo",
+      "name_key": "contact.type.npo",
+      "group_key": "contact.type.npo.plural",
+      "create_key": "contact.type.npo.new",
       "edit_key": "contact.type.place.edit",
-      "icon": "medic-district-subdistrict",
-      "create_form": "form:contact:district_subdistrict:create",
-      "edit_form": "form:contact:district_subdistrict:edit"
+      "icon": "medic-person",
+      "create_form": "form:contact:npo:create",
+      "edit_form": "form:contact:npo:edit"
     },
     {
       "id": "district_hospital",
@@ -301,22 +300,9 @@
       "create_key": "contact.type.district_hospital.new",
       "edit_key": "contact.type.place.edit",
       "parents": [
-        "district_subdistrict"
+        "district_npo"
       ],
-      "icon": "medic-district-hospital",
-      "create_form": "form:contact:district_hospital:create",
-      "edit_form": "form:contact:district_hospital:edit"
-    },
-    {
-      "id": "district_hospital",
-      "name_key": "contact.type.district_hospital",
-      "group_key": "contact.type.district_hospital.plural",
-      "create_key": "contact.type.district_hospital.new",
-      "edit_key": "contact.type.place.edit",
-      "parents": [
-        "npo"
-      ],
-      "icon": "medic-district-hospital",
+      "icon": "medic-person",
       "create_form": "form:contact:district_hospital:create",
       "edit_form": "form:contact:district_hospital:edit"
     },

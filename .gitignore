@@ -49,3 +49,7 @@ tests/cht-couchdb-cluster-test.yml
 couchdb/srv*
 tests/scalability/jmeter/
 webapp/analyzer.report.html
+
+##
+config/**/*.xml
+docker/srv1/**/*

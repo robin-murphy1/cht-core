@@ -1,21 +1,23 @@
-cht-api:
-  image: robinmurphywcg/wcg-cht-api:latest
-  depends_on:
-  - haproxy
-  ports:
-  - 5988:5988
-  environment:
-  - "COUCHDB_PASSWORDD=${COUCHDB_PASSWORDD:-password}"
-  - "COUCHDB_USER=${COUCHDB_USER:-admin}"
-  - "COUCH_URL=http://admin:password@couchdb.1:5984/medic"
-  logging:
-    driver: "local"
-    options:
-      max-size: "${LOG_MAX_SIZE:-50m}"
-      max-file: "${LOG_MAX_FILES:-20}"
-  restart: always
-  networks:
-    cht-net:
+
+version: '3.9'
+
+services:
+  cht-api:
+    image: robinmurphywcg/wcg-cht-api:latest
+    ports:
+    - 5988:5988
+    environment:
+    - "COUCHDB_PASSWORDD=${COUCHDB_PASSWORDD:-password}"
+    - "COUCHDB_USER=${COUCHDB_USER:-admin}"
+    - "COUCH_URL=admin:password@couchdb.1:5984/medic"
+    logging:
+      driver: "local"
+      options:
+        max-size: "${LOG_MAX_SIZE:-50m}"
+        max-file: "${LOG_MAX_FILES:-20}"
+    restart: always
+    networks:
+      cht-net:
 
 networks:
   cht-net:
