@@ -39,6 +39,42 @@
     }
   },
   "permissions": {
+    "can_access_gateway_api": [
+      "system_admin"
+    ],
+     "can_configure": [
+      "system_admin"
+    ],
+     "can_create_users": [
+      "system_admin"
+    ],
+     "can_delete_users": [
+      "system_admin"
+    ],
+     "can_log_out_on_android": [
+      "system_admin"
+    ],
+     "can_update_users": [
+      "system_admin"
+    ],
+    "can_upgrade": [
+      "system_admin"
+    ],
+    "can_view_last_visited_date": [
+      "system_admin"
+    ],
+    "can_view_outgoing_messages": [
+      "system_admin"
+    ],
+    "can_view_uhc_stats": [
+      "system_admin"
+    ],
+    "can_view_users": [
+      "system_admin"
+    ],
+    "can_write_wealth_quintiles": [
+      "system_admin"
+    ],
     "can_bulk_delete_reports": [
       "chw_supervisor",
       "chw",
@@ -180,7 +216,12 @@
     ],
     "can_view_tasks": [
       "chw_supervisor",
-      "chw"
+      "chw",
+      "system_admin"
+    ],
+    "can_view_tasks_group": [
+      "chw",
+      "system_admin"
     ],
     "can_view_tasks_tab": [
       "chw_supervisor",
