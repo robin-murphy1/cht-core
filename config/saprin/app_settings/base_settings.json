@@ -233,6 +233,9 @@
       "chw",
       "system_admin"
     ],
+     "can_view_old_filter_and_search": [
+      "system_admin"
+    ],
     "can_aggregate_targets": [
       "chw_supervisor",
       "system_admin"
