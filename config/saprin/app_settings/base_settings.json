@@ -32,8 +32,7 @@
     "chw": {
       "name": "usertype.chw",
       "offline": true
-    }
-      },
+    },
     "system_admin": {
       "name": "usertype.admin",
       "offline": false
