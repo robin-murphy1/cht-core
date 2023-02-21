@@ -1,7 +1,7 @@
 module.exports = [
   {
     name: 'saprin followup',
-    icon: 'wcg-cliemt.svg',
+    icon: 'wcg-cliemt',
     title: 'task.saprim-followup',
     appliesTo: 'reports',
     appliesToType: ['delivery'],
