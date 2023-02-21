@@ -10,20 +10,20 @@ module.exports = [
       {
         id: 'saprin-followup-1',
         days: 7,
-        start: 2,
-        end: 2,
+        start: 6,
+        end: 1,
       },
       {
         id: 'saprin-followup-2',
         days: 14,
-        start: 2,
+        start: 6,
         end: 2,
       }
     ],
     resolvedIf: function (contact, report, event, dueDate) {
       return Utils.isFormSubmittedInWindow(
         contact.reports,
-        'saprin',
+        'delivery',
         Utils.addDate(dueDate, -event.start).getTime(),
         Utils.addDate(dueDate, event.end + 1).getTime()
       );
