@@ -14,7 +14,7 @@ services:
     - "COUCHDB_PASSWORD=${COUCHDB_PASSWORD:-password}"
     - "COUCHDB_SECRET=${COUCHDB_SECRET:-password}"
     - "COUCHDB_UUID=${COUCHDB_UUID:-5c265815-b9e3-47f1-ba8d-c1d50495eeb2}"
-    - "SVC_NAME=${SVC1_NAME:-couchdb.1}"
+    - "SVC_NAME=${SVC1_NAME:-couchdb}"
     #    - "CLUSTER_PEER_IPS=couchdb.2,couchdb.3"
     - "COUCHDB_LOG_LEVEL=${COUCHDB_LOG_LEVEL:-debug}"
     logging:
@@ -33,7 +33,7 @@ services:
     - "HAPROXY_IP=${HAPROXY_IP:-haproxy}"
     - "COUCHDB_USER=${COUCHDB_USER:-admin}"
     - "COUCHDB_PASSWORD=${COUCHDB_PASSWORD:-password}"
-    - "COUCHDB1_SERVER=${COUCHDB1_SERVER:-couchdb.1}"
+    - "COUCHDB1_SERVER=${COUCHDB1_SERVER:-couchdb}"
     - "HAPROXY_PORT=${HAPROXY_PORT:-5984}"
     depends_on:
     - couchdb
